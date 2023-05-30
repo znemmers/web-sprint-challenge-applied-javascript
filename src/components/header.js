@@ -1,5 +1,35 @@
 const Header = (title, date, temp) => {
-  // TASK 1
+  const newsHeader = document.createElement('div') 
+  const newsDate = document.createElement('span')
+  const newsTitle = document.createElement('h1')
+  const newsTemp = document.createElement('span')
+  
+  newsHeader.appendChild(newsDate)
+  newsHeader.appendChild(newsTitle)
+  newsHeader.appendChild(newsTemp)
+
+  newsDate.textContent = date
+  newsTitle.textContent = title
+  newsTemp.textContent = temp
+
+  newsHeader.classList.add('header')
+  newsDate.classList.add('date')
+  newsTemp.classList.add('temp')
+
+  return newsHeader
+
+}
+
+const headerAppender = (selector) => {
+  const select = document.querySelector(selector)
+  select.appendChild(Header("Bloomtech Times", "May 17, 2023", "80°"))
+  
+}
+
+export { Header, headerAppender }
+
+
+// TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
   // The html tags used, the hierarchy of elements and their attributes must match the provided markup exactly!
@@ -11,10 +41,7 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
-}
-
-const headerAppender = (selector) => {
-  // TASK 2
+// TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
   // It should create a header using the Header component above, passing arguments of your choosing.
@@ -26,6 +53,3 @@ const headerAppender = (selector) => {
   // We are taking care of passing in the correct selector on line 16,
   // so all that you need to do is pass it into the querySelector method
   // for the tests to work!
-}
-
-export { Header, headerAppender }
