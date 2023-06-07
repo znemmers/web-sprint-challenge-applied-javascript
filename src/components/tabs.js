@@ -15,12 +15,13 @@ return topicsWrapper
 const tabsAppender = (selector) => {
   const select = document.querySelector(selector)
   axios.get('http://localhost:5001/api/topics')
-    .then(repsonse => {
-      select.appendChild(Tabs("javascript", "bootstrap", "technology", "jquery", "node.js"))
+    .then(res => {
+      select.appendChild(Tabs(res.data.topics))
     })
     .catch(err => {
 
     })
+    
 }
 
 export { Tabs, tabsAppender }
